@@ -1,5 +1,9 @@
 package application.service;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+
 import org.springframework.stereotype.Service;
 
 import com.auth0.jwt.JWT;
@@ -22,5 +26,9 @@ public class TokenService {
         } catch (JWTCreationException exception) {
             throw new RuntimeException("Erro ao gerar JWT", exception);
         }
+    }
+
+    private Instant expirationDate() {
+        return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-03:00"));
     }
 }
