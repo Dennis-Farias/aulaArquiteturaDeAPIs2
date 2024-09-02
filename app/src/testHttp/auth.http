@@ -1,0 +1,10 @@
+@baseUrl = https://8080-dennisfaria-aulaarquite-uzgf3oncrn2.ws-us115.gitpod.io
+
+###
+POST {{baseUrl}}/auth
+Content-Type: application/json
+
+{
+    "nomeDeUsuario": "admin",
+    "senha": "admin"
+}

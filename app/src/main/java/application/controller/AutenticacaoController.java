@@ -1,9 +1,10 @@
 package application.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties.Authentication;
+
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,9 +25,8 @@ public class AutenticacaoController {
     @PostMapping
     public String login(@RequestBody Usuario usuario) {
         UsernamePasswordAuthenticationToken token =
-         new UsernamePasswordAuthenticationToken(usuario.getNomeDeUsuario(), usuario.getSenha());
+            new UsernamePasswordAuthenticationToken(usuario.getNomeDeUsuario(), usuario.getSenha());
         Authentication authentication = authManager.authenticate(token);
-
 
         return tokenService.generateToken(usuario);
     }
