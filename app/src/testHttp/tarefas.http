@@ -4,6 +4,7 @@
 
 ###
 GET {{baseUrl}}/tarefas
+Authorization: Bearer {{token}}
 
 ###
 POST {{baseUrl}}/tarefas
